@@ -21,8 +21,7 @@ block content
     tr
       td Miner: 
       td  
-        a(href="#") #{nameformatter.format(block.miner)}
-        //a(href="/account/" + block.miner) #{nameformatter.format(block.miner)}
+        a(href="/account/" + block.miner) #{nameformatter.format(block.miner)}
     tr
       td Gas Limit:
       td #{numeral(block.gasLimit).format()}
@@ -81,28 +80,3 @@ block content
               else
                 | New Contract
             td #{ethformatter(tx.value)}
-          for trace in tx.traces
-            tr
-              td.text-right
-                if trace.error
-                  span(style="color: red", data-toggle="tooltip", data-placement="left", title=trace.error).glyphicon.glyphicon-warning-sign
-                span.glyphicon.glyphicon-arrow-right
-              td.capitalize #{trace.type}
-              if trace.type === "call"
-                td
-                  a(href="/account/" + trace.action.from) #{nameformatter.format(trace.action.from)}
-                td 
-                  a(href="/account/" + trace.action.to) #{nameformatter.format(trace.action.to)}
-                td #{ethformatter(trace.action.value)}
-              else if trace.type === "create"
-                td
-                  a(href="/account/" + trace.action.from) #{nameformatter.format(trace.action.from)}
-                td
-                  a(href="/account/" + trace.result.address) #{nameformatter.format(trace.result.address)}
-                td #{ethformatter(trace.action.value)}
-              else if trace.type === "suicide"
-                td
-                  a(href="/account/" + trace.action.address) #{nameformatter.format(trace.action.address)}
-                td
-                  a(href="/account/" + trace.action.refundAddress) #{nameformatter.format(trace.action.refundAddress)}
-                td #{ethformatter(trace.action.balance)}

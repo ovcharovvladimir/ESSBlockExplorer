@@ -21,20 +21,6 @@ router.get('/:block', function(req, res, next) {
       return next(err);
     }
     
-    block.transactions.forEach(function(tx) {
-      tx.traces = [];
-      tx.failed = false;
-      traces.forEach(function(trace) {
-        if (tx.hash === trace.transactionHash) {
-          tx.traces.push(trace);
-          if (trace.error) {
-            tx.failed = true;
-            tx.error = trace.error;
-          }
-        }
-      });
-      // console.log(tx);
-    });
     res.render('block', { block: block });
   });
   
@@ -62,9 +48,7 @@ router.get('/uncle/:hash/:number', function(req, res, next) {
     if (err) {
       return next(err);
     }
-     
-    console.log(uncle);
-    
+         
     res.render('uncle', { uncle: uncle, blockHash: req.params.hash });
   });
   

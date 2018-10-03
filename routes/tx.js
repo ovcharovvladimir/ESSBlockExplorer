@@ -78,13 +78,9 @@ router.get('/:tx', function(req, res, next) {
       web3.eth.getTransactionReceipt(result.hash, function(err, receipt) {
         callback(err, result, receipt);
       });
-    }, function(tx, receipt, callback) {  
-      web3.trace.transaction(tx.hash, function(err, traces) {
-        callback(err, tx, receipt, traces);
-      });
-    }, function(tx, receipt, traces, callback) {
+    }, function(tx, receipt, callback) {
       db.get(tx.to, function(err, value) {
-        callback(null, tx, receipt, traces, value);
+        callback(null, tx, receipt, [], value);
       });
     }
   ], function(err, tx, receipt, traces, source) {

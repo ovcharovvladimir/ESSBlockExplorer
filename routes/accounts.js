@@ -3,6 +3,7 @@ var router = express.Router();
 
 var async = require('async');
 var Web3 = require('web3');
+var request = require('request')
 
 router.get('/:offset?', function(req, res, next) {
   var config = req.app.get('config');  
@@ -11,11 +12,11 @@ router.get('/:offset?', function(req, res, next) {
   
   async.waterfall([
     function(callback) {
-      web3.eth.accounts(20, req.params.offset, function(err, result) {
-        callback(err, result);
-      });
-    }, function(accounts, callback) {
-      
+      request.get(config.blockexplorerDataUrl + '/accounts', function (err, response, body){
+        callback(err, JSON.parse(body).addresses);
+        })
+    }, function(allAccounts, callback) {
+      let accounts = allAccounts.slice(0, 20)
       var data = {};
       
       if (!accounts) {

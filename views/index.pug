@@ -16,8 +16,7 @@ block content
           td
             a(href="/block/" + block.number) #{block.number}
           td 
-            //a(href="/account/" + block.miner) #{nameformatter.format(block.miner)}
-            a(href="/#") #{nameformatter.format(block.miner)}
+            a(href="/account/" + block.miner) #{nameformatter.format(block.miner)}
           td #{moment.unix(block.timestamp).format()}
           td #{block.transactions.length}
           td #{block.uncles.length}
