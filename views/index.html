@@ -72,7 +72,73 @@
       <button class="search-btn icon-search"></button>
     </div>
   </header>
-  <main></main>
+  <main>
+    <div class="container">
+      <ul class="factoids-list">
+        <li class="factoids-list__item">
+          <div class="factoid">
+            <div class="factoid__title">
+              <span class="factoid__title-circle"
+                    style="background-color: #225cff;"
+              ></span>
+              <span class="factoid__title-text">CURRENT BLOCK</span>
+            </div>
+            <div class="factoid__text">1760308</div>
+          </div>
+        </li>
+        <li class="factoids-list__item">
+          <div class="factoid">
+          <div class="factoid__title">
+            <span class="factoid__title-circle"
+                  style="background-color: #d0021b;"
+            ></span>
+            <span class="factoid__title-text">GAS LIMIT(m/s)</span>
+          </div>
+          <div class="factoid__text">4,712,388</div>
+        </div>
+        </li>
+        <li class="factoids-list__item">
+          <div class="factoid">
+          <div class="factoid__title">
+            <span class="factoid__title-circle"
+                  style="background-color: #f5a623;"
+            ></span>
+            <span class="factoid__title-text">BLOCK TIME</span>
+          </div>
+          <div class="factoid__text">25 sec</div>
+        </div>
+        </li>
+        <li class="factoids-list__item">
+          <div class="factoid">
+          <div class="factoid__title">
+            <span class="factoid__title-circle"
+                  style="background-color: #90a1b8;"
+            ></span>
+            <span class="factoid__title-text">CURRENT DIFF (T)</span>
+          </div>
+          <div class="factoid__text">52.030</div>
+        </div>
+
+        </li>
+        <li class="factoids-list__item">
+          <div class="factoid">
+            <div class="factoid__title">
+              <span class="factoid__title-circle"
+                    style="background-color: #46576e;"
+              ></span>
+              <span class="factoid__title-text">HASHRATE(TH/s)</span>
+            </div>
+            <div class="factoid__text">3.907</div>
+          </div>
+        </li>
+      </ul>
+      <form class="form search-form">
+        <span class="search-form__icon icon-search"></span>
+        <input type="text" placeholder="Tx Hash, Address, or Block#">
+        <button class="btn">SEARCH</button>
+      </form>
+    </div>
+  </main>
   <script src="scripts/common.js"></script>
 </body>
 </html>
