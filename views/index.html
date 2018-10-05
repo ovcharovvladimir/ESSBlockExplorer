@@ -11,190 +11,285 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container inline-container">
-      <div class="inline-container">
-        <a href="/" class="main-logo">
-          <span class="main-logo__icon icon-ess-logo"></span>
-          <span class="main-logo__text">ESS Explorer</span>
-        </a>
-        <ul class="main-nav">
-          <li class="main-nav__item is-active">
-            <a href="#"
-              class="main-nav__link">
-              Home
-            </a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#"
-              class="main-nav__link">
-              Accounts
-            </a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#"
-              class="main-nav__link">
-              Pending Tx
-            </a>
-          </li>
-          <li class="main-nav__item">
-            <div class="dropdown">
-              <button class="dropdown__toggle main-nav__link">
-                <span class="dropdown__toggle-text">Tools</span>
-                <span class="dropdown__toggle-icon icon-chevron-down"></span>
-              </button>
-              <div class="dropdown__menu">
-                <ul>
-                  <li class="dropdown__menu-item">
-                    <a href="#"
-                      class="dropdown__menu-link">
-                      Submit Tx
-                    </a>
-                  </li>
-                  <li class="dropdown__menu-item">
-                    <a href="#"
-                      class="dropdown__menu-link">
-                      Verify Contract
-                    </a>
-                  </li>
-                  <li class="dropdown__menu-item">
-                    <a href="#"
-                      class="dropdown__menu-link">
-                      Verify Signature
-                    </a>
-                  </li>
-                </ul>
+  <div class="main-wrapper">
+    <header class="header">
+      <div class="container inline-container">
+        <div class="inline-container">
+          <a href="/" class="main-logo">
+            <span class="main-logo__icon icon-ess-logo"></span>
+            <span class="main-logo__text">ESS Explorer</span>
+          </a>
+          <ul class="main-nav">
+            <li class="main-nav__item is-active">
+              <a href="#"
+                class="main-nav__link">
+                Home
+              </a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#"
+                class="main-nav__link">
+                Accounts
+              </a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#"
+                class="main-nav__link">
+                Pending Tx
+              </a>
+            </li>
+            <li class="main-nav__item">
+              <div class="dropdown">
+                <button class="dropdown__toggle main-nav__link">
+                  <span class="dropdown__toggle-text">Tools</span>
+                  <span class="dropdown__toggle-icon icon-chevron-down"></span>
+                </button>
+                <div class="dropdown__menu">
+                  <ul>
+                    <li class="dropdown__menu-item">
+                      <a href="#"
+                        class="dropdown__menu-link">
+                        Submit Tx
+                      </a>
+                    </li>
+                    <li class="dropdown__menu-item">
+                      <a href="#"
+                        class="dropdown__menu-link">
+                        Verify Contract
+                      </a>
+                    </li>
+                    <li class="dropdown__menu-item">
+                      <a href="#"
+                        class="dropdown__menu-link">
+                        Verify Signature
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
+            </li>
+          </ul>
+        </div>
+        <button class="search-btn icon-search"></button>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <ul class="factoids-list">
+          <li class="factoids-list__item">
+            <div class="factoid">
+              <div class="factoid__title">
+                <span class="factoid__title-circle"
+                      style="background-color: #225cff;"
+                ></span>
+                <span class="factoid__title-text">CURRENT BLOCK</span>
+              </div>
+              <div class="factoid__text">1760308</div>
+            </div>
+          </li>
+          <li class="factoids-list__item">
+            <div class="factoid">
+            <div class="factoid__title">
+              <span class="factoid__title-circle"
+                    style="background-color: #d0021b;"
+              ></span>
+              <span class="factoid__title-text">GAS LIMIT(m/s)</span>
+            </div>
+            <div class="factoid__text">4,712,388</div>
+          </div>
+          </li>
+          <li class="factoids-list__item">
+            <div class="factoid">
+            <div class="factoid__title">
+              <span class="factoid__title-circle"
+                    style="background-color: #f5a623;"
+              ></span>
+              <span class="factoid__title-text">BLOCK TIME</span>
+            </div>
+            <div class="factoid__text">25 sec</div>
+          </div>
+          </li>
+          <li class="factoids-list__item">
+            <div class="factoid">
+            <div class="factoid__title">
+              <span class="factoid__title-circle"
+                    style="background-color: #90a1b8;"
+              ></span>
+              <span class="factoid__title-text">CURRENT DIFF (T)</span>
+            </div>
+            <div class="factoid__text">52.030</div>
+          </div>
+          </li>
+          <li class="factoids-list__item">
+            <div class="factoid">
+              <div class="factoid__title">
+                <span class="factoid__title-circle"
+                      style="background-color: #46576e;"
+                ></span>
+                <span class="factoid__title-text">HASHRATE(TH/s)</span>
+              </div>
+              <div class="factoid__text">3.907</div>
             </div>
           </li>
         </ul>
+        <form class="form search-form">
+          <span class="search-form__icon icon-search"></span>
+          <input type="text" placeholder="Tx Hash, Address, or Block#">
+          <button class="btn">SEARCH</button>
+        </form>
+        <div class="recent-transactions">
+          <div class="recent-transactions__top">
+            <div class="recent-transactions__title">RECENT TRANSACTIONS</div>
+            <button class="btn btn--secondary">View all</button>
+          </div>
+          <div class="table-blocks">
+            <div class="table-blocks__tr">
+              <div class="table-blocks__th">Hash</div>
+              <div class="table-blocks__th">Block#</div>
+              <div class="table-blocks__th">From</div>
+              <div class="table-blocks__th">To</div>
+              <div class="table-blocks__th">Amount</div>
+            </div>
+            <div class="table-blocks__tr">
+              <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+              <div class="table-blocks__td">176038</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0.02176375757047623</div>
+            </div>
+            <div class="table-blocks__tr">
+              <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+              <div class="table-blocks__td">176038</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0.02176375757047623</div>
+            </div>
+            <div class="table-blocks__tr">
+              <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+              <div class="table-blocks__td">176038</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0.02176375757047623</div>
+            </div>
+            <div class="table-blocks__tr">
+              <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+              <div class="table-blocks__td">176038</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0.02176375757047623</div>
+            </div>
+            <div class="table-blocks__tr">
+              <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+              <div class="table-blocks__td">176038</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0.02176375757047623</div>
+            </div>
+            <div class="table-blocks__tr">
+              <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+              <div class="table-blocks__td">176038</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+              <div class="table-blocks__td">0.02176375757047623</div>
+            </div>
+          </div>
+        </div>
+        <!-- remove -->
+        <div style="margin-bottom: 20px;">
+          <button class="btn" data-modal="verify-contract-source-modal">Open Verify Contract Source Modal</button>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <button class="btn" data-modal="verify-signatures-modal">Open Verify ESS Signatures Modal</button>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <button class="btn" data-modal="sumit-raw-transaction-modal">Open Sumit Raw Transaction Modal</button>
+        </div>
+        <!-- remove -->
       </div>
-      <button class="search-btn icon-search"></button>
-    </div>
-  </header>
-  <main>
-    <div class="container">
-      <ul class="factoids-list">
-        <li class="factoids-list__item">
-          <div class="factoid">
-            <div class="factoid__title">
-              <span class="factoid__title-circle"
-                    style="background-color: #225cff;"
-              ></span>
-              <span class="factoid__title-text">CURRENT BLOCK</span>
-            </div>
-            <div class="factoid__text">1760308</div>
-          </div>
-        </li>
-        <li class="factoids-list__item">
-          <div class="factoid">
-          <div class="factoid__title">
-            <span class="factoid__title-circle"
-                  style="background-color: #d0021b;"
-            ></span>
-            <span class="factoid__title-text">GAS LIMIT(m/s)</span>
-          </div>
-          <div class="factoid__text">4,712,388</div>
+    </main>
+  </div>
+  <div class="modal" id="verify-contract-source-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+      <div class="modal__close">&times;</div>
+      <div class="modal__title">Verify Contract Source</div>
+      <form class="form">
+        <div class="form__group">
+          <label for="verify-contract-source-ess-address">ESS Address</label>
+          <input type="text" id="verify-contract-source-ess-address">
         </div>
-        </li>
-        <li class="factoids-list__item">
-          <div class="factoid">
-          <div class="factoid__title">
-            <span class="factoid__title-circle"
-                  style="background-color: #f5a623;"
-            ></span>
-            <span class="factoid__title-text">BLOCK TIME</span>
-          </div>
-          <div class="factoid__text">25 sec</div>
+        <div class="form__group">
+          <label for="verify-contract-source-contract-name">Contract Name</label>
+          <input type="text" id="verify-contract-source-contract-name">
         </div>
-        </li>
-        <li class="factoids-list__item">
-          <div class="factoid">
-          <div class="factoid__title">
-            <span class="factoid__title-circle"
-                  style="background-color: #90a1b8;"
-            ></span>
-            <span class="factoid__title-text">CURRENT DIFF (T)</span>
-          </div>
-          <div class="factoid__text">52.030</div>
+        <div class="form__group">
+          <label for="verify-contract-source-contract-source">Contract Source</label>
+          <input type="text" id="verify-contract-source-contract-source">
         </div>
-        </li>
-        <li class="factoids-list__item">
-          <div class="factoid">
-            <div class="factoid__title">
-              <span class="factoid__title-circle"
-                    style="background-color: #46576e;"
-              ></span>
-              <span class="factoid__title-text">HASHRATE(TH/s)</span>
-            </div>
-            <div class="factoid__text">3.907</div>
+        <div class="form__group">
+          <label for="verify-contract-source-compiler-version">Compiler Version</label>
+          <div class="select">
+            <span class="select__icon icon-chevron-down"></span>
+            <select id="verify-contract-source-compiler-version">
+              <option value="verifyCompilerVersion1">
+                solijson-v0.4.20-nighty.2018.1.29
+              </option>
+              <option value="verifyCompilerVersion2">
+                solijson-v0.4.20-nighty.2018.1.29
+              </option>
+              <option value="verifyCompilerVersion3">
+                solijson-v0.4.20-nighty.2018.1.29
+              </option>
+            </select>
           </div>
-        </li>
-      </ul>
-      <form class="form search-form">
-        <span class="search-form__icon icon-search"></span>
-        <input type="text" placeholder="Tx Hash, Address, or Block#">
-        <button class="btn">SEARCH</button>
+        </div>
+        <div class="form__btn">
+          <button class="btn btn--large">VERIFY</button>
+        </div>
       </form>
-      <div class="recent-transactions">
-        <div class="recent-transactions__top">
-          <div class="recent-transactions__title">RECENT TRANSACTIONS</div>
-          <button class="btn btn--secondary">View all</button>
-        </div>
-        <div class="table-blocks">
-          <div class="table-blocks__tr">
-            <div class="table-blocks__th">Hash</div>
-            <div class="table-blocks__th">Block#</div>
-            <div class="table-blocks__th">From</div>
-            <div class="table-blocks__th">To</div>
-            <div class="table-blocks__th">Amount</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
-            <div class="table-blocks__td">176038</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0.02176375757047623</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
-            <div class="table-blocks__td">176038</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0.02176375757047623</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
-            <div class="table-blocks__td">176038</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0.02176375757047623</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
-            <div class="table-blocks__td">176038</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0.02176375757047623</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
-            <div class="table-blocks__td">176038</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0.02176375757047623</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
-            <div class="table-blocks__td">176038</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-            <div class="table-blocks__td">0.02176375757047623</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </main>
+  </div>
+  <div class="modal" id="verify-signatures-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+      <div class="modal__close">&times;</div>
+      <div class="modal__title">Verify ESS Signatures</div>
+      <form class="form">
+        <div class="form__group">
+          <label for="verify-signatures-ess-address">ESS Address</label>
+          <input type="text" id="verify-signatures-ess-address">
+        </div>
+        <div class="form__group">
+          <label for="verify-signatures-message">Message</label>
+          <input type="text" id="verify-signatures-message">
+        </div>
+        <div class="form__group">
+          <label for="verify-signatures-signature">Signature</label>
+          <input type="text" id="verify-signatures-signature">
+        </div>
+        <div class="form__btn">
+          <button class="btn btn--large">VERIFY</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal" id="sumit-raw-transaction-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+      <div class="modal__close">&times;</div>
+      <div class="modal__title">Sumit Raw Transaction</div>
+      <form class="form">
+        <div class="form__group">
+          <label for="sumit-raw-transaction-signed-hex">Signed Transaction Hex</label>
+          <input type="text" id="sumit-raw-transaction-signed-hex">
+        </div>
+        <div class="form__btn">
+          <button class="btn btn--large">VERIFY</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="scripts/common.js"></script>
 </body>
 </html>
