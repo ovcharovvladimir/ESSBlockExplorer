@@ -137,33 +137,89 @@
         <input type="text" placeholder="Tx Hash, Address, or Block#">
         <button class="btn">SEARCH</button>
       </form>
+      <div class="table-blocks">
+        <div class="table-blocks__title">
+          <span class="table-blocks__title-icon icon-search"></span>
+          <span class="table-blocks__title-text">RECENT BLOCKS</span>
+        </div>
+        <div class="table-blocks__tr">
+          <div class="table-blocks__th">Block#</div>
+          <div class="table-blocks__th">Block Hash</div>
+          <div class="table-blocks__th">Difficulty</div>
+          <div class="table-blocks__th">Miner</div>
+          <div class="table-blocks__th">Size</div>
+          <div class="table-blocks__th">Date</div>
+          <div class="table-blocks__th"># of TXs</div>
+          <div class="table-blocks__th">Gas Used</div>
+        </div>
+        <div class="table-blocks__tr">
+          <div class="table-blocks__td">176038</div>
+          <div class="table-blocks__td">0xba5adfb01dfsfs…</div>
+          <div class="table-blocks__td">52.030 T</div>
+          <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8 </div>
+          <div class="table-blocks__td">7.311 Kb</div>
+          <div class="table-blocks__td">27 Feb 2018 22:44:15</div>
+          <div class="table-blocks__td">29</div>
+          <div class="table-blocks__td">183.354 m/s</div>
+        </div>
+      </div>
       <div class="recent-transactions">
         <div class="recent-transactions__top">
           <div class="recent-transactions__title">RECENT TRANSACTIONS</div>
           <button class="btn btn--secondary">View all</button>
         </div>
-        <div class="recent-transactions__main">
-          <div class="list-transactions">
-            <div class="list-transactions__header list-transactions-header">
-              <div class="list-transactions-header__cell-title first-cell">Hash</div>
-              <div class="list-transactions-header__cell-title secondart-cell">Block#</div>
-              <div class="list-transactions-header__cell-title">From</div>
-              <div class="list-transactions-header__cell-title">To</div>
-              <div class="list-transactions-header__cell-title">Amount</div>
-            </div>
-            <div class="list-transactions__main">
-              <div class="list-transactions__item-row list-transactions-item-row">
-                <div class="list-transactions-item-row__cell first-cell">0xba5adfb01dfsfs…</div>
-                <div class="list-transactions-item-row__cell secondart-cell">176038</div>
-                <div class="list-transactions-item-row__cell">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
-                <div class="list-transactions-item-row__cell">0xea674fdde714fd979de3edf0f56aa9716b898ec8 </div>
-                <div class="list-transactions-item-row__cell">0.02176375757047623 ETH</div>
-              </div>
-            </div>
+        <div class="table-blocks">
+          <div class="table-blocks__tr">
+            <div class="table-blocks__th">Hash</div>
+            <div class="table-blocks__th">Block#</div>
+            <div class="table-blocks__th">From</div>
+            <div class="table-blocks__th">To</div>
+            <div class="table-blocks__th">Amount</div>
+          </div>
+          <div class="table-blocks__tr">
+            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+            <div class="table-blocks__td">176038</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0.02176375757047623</div>
+          </div>
+          <div class="table-blocks__tr">
+            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+            <div class="table-blocks__td">176038</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0.02176375757047623</div>
+          </div>
+          <div class="table-blocks__tr">
+            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+            <div class="table-blocks__td">176038</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0.02176375757047623</div>
+          </div>
+          <div class="table-blocks__tr">
+            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+            <div class="table-blocks__td">176038</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0.02176375757047623</div>
+          </div>
+          <div class="table-blocks__tr">
+            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+            <div class="table-blocks__td">176038</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0.02176375757047623</div>
+          </div>
+          <div class="table-blocks__tr">
+            <div class="table-blocks__td hash-box">0xba5adfb01dfsfs</div>
+            <div class="table-blocks__td">176038</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0xea674fdde714fd979de3edf0f56aa9716b898ec8</div>
+            <div class="table-blocks__td">0.02176375757047623</div>
           </div>
         </div>
       </div>
-    </div>
   </main>
   <script src="scripts/common.js"></script>
 </body>
