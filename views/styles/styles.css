@@ -5,6 +5,7 @@
   --text-primary-saturated: #225cff;
   --text-primary-saturated-hover: #0b39bc;
   --text-accent-saturated: #46576e;
+  --text-accent-saturated--dark: #2f435d;
   --text-secondary-inefficient: #90a1b8;
 }
 
@@ -313,4 +314,52 @@ h1, h2, h3, h4, h5, h6 {
 .search-form__icon {
   font-size: 18px;
   color: var(--text-secondary-inefficient);
+}
+
+/* recent transactions */
+.recent-transactions {
+  padding: 10px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+.recent-transactions__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.recent-transactions__title {
+  color: var(--text-secondary-inefficient);
+  font-size: 16px;
+  font-weight: 600;
+}
+.btn--secondary {
+  background-color: var(--text-secondary-inefficient);
+}
+.list-transactions__header {
+  display: table;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.list-transactions-header__cell-title {
+  display: table-cell;
+  font-size: 12px;
+  color: var(--text-secondary-inefficient);
+  padding-right: 20px;
+}
+.list-transactions-item-row {
+  display: table;
+  width: 100%;
+}
+.list-transactions-item-row__cell {
+  display: table-cell;
+  font-size: 12px;
+  color: var(--text-accent-saturated--dark);
+  padding-right: 20px;
+}
+.first-cell {
+  width: 130px;
+}
+.secondart-cell {
+  width: 43px;
 }
