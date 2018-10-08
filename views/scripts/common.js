@@ -128,6 +128,7 @@
     constructor(btn, form) {
       this.btn = document.querySelector(btn)
       this.form = document.querySelector(form)
+      this.input = this.form.querySelector('input')
       this.IS_OPEN = 'is-open'
     }
 
@@ -135,6 +136,7 @@
       const _this = this
       this.btn.addEventListener('click', function () {
         _this.form.classList.toggle(_this.IS_OPEN)
+        _this.input.focus()
       })
     }
   }
