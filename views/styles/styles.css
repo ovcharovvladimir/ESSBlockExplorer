@@ -466,7 +466,6 @@ select {
   left: 0;
   filter: blur(6px);
   background-color: rgba(211, 211, 211, 0.61);
-  cursor: zoom-out;
 }
 .modal__container {
   position: relative;
@@ -481,6 +480,9 @@ select {
   text-align: left;
   font-size: 14px;
   z-index: 1;
+}
+.modal__container--wide {
+  max-width: 567px;
 }
 .modal__title {
   margin-bottom: 32px;
@@ -498,4 +500,48 @@ select {
   line-height: .4;
   color: var(--text-secondary-inefficient);
   cursor: pointer;
+}
+.modal__info {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  color: #46576e;
+}
+.modal__info-title {
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text-secondary-inefficient);
+}
+.modal__title--inner {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 2.5;
+}
+.modal__info-row:not(:last-child) {
+  margin-bottom: 16px;
+}
+.modal__info-table {
+  display: table;
+  width: 100%;
+  padding: 24px 0;
+}
+.modal__info-table-row {
+  display: table-row;
+}
+.modal__info-table-td {
+  display: table-cell;
+  padding: 8px 20px;
+}
+.modal__info-table-td:first-child {
+  padding-left: 0;
+}
+.modal__info-table-td:last-child {
+  padding-right: 0;
+}
+.modal__btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
 }
