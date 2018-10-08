@@ -425,6 +425,11 @@ select {
   font-size: 16px;
   font-weight: 600;
 }
+.table-wrapper__title i {
+  display: inline-block;
+  margin: -2px 11px 0 0;
+  vertical-align: middle;
+}
 .btn--secondary {
   background-color: var(--text-secondary-inefficient);
 }
@@ -470,6 +475,13 @@ select {
 .table-blocks__td {
   display: table-cell;
   padding: 9px 12px;
+}
+.table-blocks__td .icon-cube {
+  color: var(--text-secondary-inefficient);
+  margin: 0 5px -1px 0;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: bottom;
 }
 .table-blocks__td--bold {
   font-weight: bold;
@@ -559,22 +571,6 @@ select {
 }
 .copyright__footer {
   font-size: 14px;
-  font-weight: 500;
-}
-.footer {
-  padding: 24px 0;
-  color: var(--text-secondary-inefficient);
-  font-size: 14px;
-  line-height: normal;
-}
-.footer__line {
-  margin-bottom: 3px;
-}
-.footer__line--bigger {
-  font-size: 16px;
-  font-weight: 500;
-}
-.footer__line--bold {
   font-weight: 500;
 }
 
