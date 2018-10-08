@@ -68,15 +68,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cube:before {
-  content: "\e903";
-}
-.icon-cube-group:before {
-  content: "\e904";
-}
-.icon-chevron-down:before {
-  content: "\e902";
-}
 .icon-search:before {
   content: "\e901";
 }
