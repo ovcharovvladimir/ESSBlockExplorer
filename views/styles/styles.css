@@ -206,6 +206,7 @@ select {
 .dropdown__menu-link {
   padding: 10px 32px;
   display: block;
+  cursor: pointer;
 }
 .dropdown__menu-item:first-child .dropdown__menu-link {
   padding-top: 16px;

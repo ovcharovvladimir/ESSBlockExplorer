@@ -22,7 +22,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  
+
   <title>ESS Explorer</title>
 
   <link rel="stylesheet" href="styles/normalize.css">
@@ -66,22 +66,25 @@
                 <div class="dropdown__menu">
                   <ul>
                     <li class="dropdown__menu-item">
-                      <a href="#"
-                        class="dropdown__menu-link">
+                      <div
+                        class="dropdown__menu-link"
+                        data-modal="sumit-raw-transaction-modal">
                         Submit Tx
-                      </a>
+                      </div>
                     </li>
                     <li class="dropdown__menu-item">
-                      <a href="#"
-                        class="dropdown__menu-link">
+                      <div
+                        class="dropdown__menu-link"
+                        data-modal="verify-contract-source-modal">
                         Verify Contract
-                      </a>
+                      </div>
                     </li>
                     <li class="dropdown__menu-item">
-                      <a href="#"
-                        class="dropdown__menu-link">
+                      <div
+                        class="dropdown__menu-link"
+                        data-modal="verify-signatures-modal">
                         Verify Signature
-                      </a>
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -213,23 +216,6 @@
             </div>
           </div>
         </div>
-        <!-- remove -->
-        <div style="margin-bottom: 20px;">
-          <button class="btn btn--large" data-modal="verify-contract-source-modal">Verify Contract Source Modal</button>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <button class="btn btn--large" data-modal="verify-signatures-modal">Verify ESS Signatures Modal</button>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <button class="btn btn--large" data-modal="sumit-raw-transaction-modal">Sumit Raw Transaction Modal</button>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <button class="btn btn--large" data-modal="block-view-modal">Block View Modal</button>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <button class="btn btn--large" data-modal="block-transaction-modal">Transaction Modal</button>
-        </div>
-        <!-- remove -->
       </div>
     </main>
     <footer class="footer">
@@ -240,6 +226,8 @@
       </div>
     </footer>
   </div>
+
+  <!-- modals -->
   <div class="modal" id="verify-contract-source-modal">
     <div class="modal__backdrop"></div>
     <div class="modal__container">
