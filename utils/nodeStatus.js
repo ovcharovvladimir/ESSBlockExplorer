@@ -14,7 +14,9 @@ var nodeStatus = function(config) {
     
     async.waterfall([
       function(callback) {
-        self.version = web3.version
+        web3.eth.net.getId(function(err, version) {
+          self.version = version
+        })
         web3.eth.net.getPeerCount(function(err, result) {
           self.nbrPeers = result;
           callback(err);
