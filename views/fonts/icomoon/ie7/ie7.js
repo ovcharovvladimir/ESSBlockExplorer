@@ -14,7 +14,8 @@
 	}
 	var icons = {
 		'icon-cube': '&#xe903;',
-		'icon-cube-group': '&#xe904;',
+		'icon-arrows': '&#xe904;',
+		'icon-cube-group': '&#xe905;',
 		'icon-chevron-down': '&#xe902;',
 		'icon-search': '&#xe901;',
 		'icon-ess-logo': '&#xe900;',

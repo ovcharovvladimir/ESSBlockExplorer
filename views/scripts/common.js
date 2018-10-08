@@ -58,8 +58,78 @@
     }
   }
 
+  class Modal {
+    constructor(modal) {
+      this.modal = document.querySelectorAll(modal)
+      this.modalLinks = document.querySelectorAll('[data-modal]')
+      this.mainWrapper = document.querySelector('.main-wrapper')
+      this.IS_OPEN = 'is-open'
+      this.IS_BLURED = 'is-blured'
+      this.DATA_MODAL = 'data-modal'
+      this.CLOSE_CLASS= '.modal__close'
+      this.BACKDROP_CLASS= '.modal__backdrop'
+    }
+
+    getClose (e) {
+      return e.querySelector(this.CLOSE_CLASS)
+    }
+
+    getBackdrop (e) {
+      return e.querySelector(this.BACKDROP_CLASS)
+    }
+
+    getDataModal (e) {
+      return e.getAttribute(this.DATA_MODAL)
+    }
+
+    addOpen (e) {
+      e.classList.add(this.IS_OPEN)
+      this.mainWrapper.classList.add(this.IS_BLURED)
+    }
+
+    removeOpen (e) {
+      e.classList.remove(this.IS_OPEN)
+      this.mainWrapper.classList.remove(this.IS_BLURED)
+    }
+
+    openModal () {
+      const _this = this
+
+      this.modalLinks.forEach(function (e) {
+        e.addEventListener('click', function () {
+          const id = _this.getDataModal(e)
+          const modal = document.querySelector(`#${id}`)
+
+          _this.addOpen(modal)
+        })
+      })
+    }
+
+    closeModal () {
+      const _this = this
+
+      this.modal.forEach(function (e) {
+        _this.getClose(e).addEventListener('click', function () {
+          _this.removeOpen(e)
+        })
+        _this.getBackdrop(e).addEventListener('click', function () {
+          _this.removeOpen(e)
+        })
+      })
+    }
+
+    init () {
+      this.openModal()
+      this.closeModal()
+    }
+  }
+
   if (document.querySelector('.dropdown')) {
     const dropdown = new Dropdown('.dropdown')
     dropdown.init()
+  }
+  if (document.querySelector('.modal')) {
+    const modal = new Modal('.modal')
+    modal.init()
   }
 })();
