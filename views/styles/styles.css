@@ -390,12 +390,14 @@ select {
 .search-form-wrapper {
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: max-height .2s ease-out;
-  -o-transition: max-height .2s ease-out;
-  transition: max-height .2s ease-out;
+  opacity: 0;
+  -webkit-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out;
 }
 .search-form-wrapper.is-open {
   max-height: 85px;
+  opacity: 1;
 }
 .search-form {
   display: -webkit-box;
