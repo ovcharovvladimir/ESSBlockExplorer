@@ -464,8 +464,25 @@ select {
   padding: 8px 0;
 }
 
-/* modal */
+/* footer */
+.footer {
+  padding: 24px 0;
+  color: var(--text-secondary-inefficient);
+  font-size: 14px;
+  line-height: normal;
+}
+.footer__line {
+  margin-bottom: 3px;
+}
+.footer__line--bigger {
+  font-size: 16px;
+  font-weight: 500;
+}
+.footer__line--bold {
+  font-weight: 500;
+}
 
+/* modal */
 .modal {
   position: fixed;
   top: 0;
