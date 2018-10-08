@@ -10,13 +10,34 @@ router.get('/pending', function(req, res, next) {
   
   var config = req.app.get('config');  
   var web3 = new Web3();
+
   web3.setProvider(config.provider);
+  web3.eth.extend({
+    property: 'txpool',
+    methods: [{
+      name: 'content',
+      call: 'txpool_content'
+    }, {
+      name: 'inspect',
+      call: 'txpool_inspect'
+    }, {
+      name: 'status',
+      call: 'txpool_status'
+    }]
+  });
   
   async.waterfall([
     function(callback) {
-      web3.parity.pendingTransactions(function(err, result) {
-        callback(err, result);
-      });
+      web3.eth.txpool.content(function (err, result) {
+        let pendingTxs = []
+        for (let address in result.pending) {
+          let addressTxs = result.pending[address]
+          for (let tx in addressTxs) {
+            pendingTxs.push(addressTxs[tx])
+          }
+        }
+        callback(err, pendingTxs)
+      })
     }
   ], function(err, txs) {
     if (err) {
