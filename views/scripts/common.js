@@ -45,8 +45,8 @@
             _this.removeOpen(dropdown)
             _this.removeActive(dropdown.querySelector('.dropdown__toggle'))
           }
-        });
-      });
+        })
+      })
 
       window.addEventListener('click', function (e) {
         if (e.target.closest('.dropdown')) {
@@ -124,6 +124,21 @@
     }
   }
 
+  class ToggleSearch {
+    constructor(btn, form) {
+      this.btn = document.querySelector(btn)
+      this.form = document.querySelector(form)
+      this.IS_OPEN = 'is-open'
+    }
+
+    init () {
+      const _this = this
+      this.btn.addEventListener('click', function () {
+        _this.form.classList.toggle(_this.IS_OPEN)
+      })
+    }
+  }
+
   if (document.querySelector('.dropdown')) {
     const dropdown = new Dropdown('.dropdown')
     dropdown.init()
@@ -131,5 +146,9 @@
   if (document.querySelector('.modal')) {
     const modal = new Modal('.modal')
     modal.init()
+  }
+  if (document.querySelector('.js-search-form')) {
+    const toggleSearch = new ToggleSearch('.js-search-btn', '.js-search-form')
+    toggleSearch.init()
   }
 })();

@@ -279,7 +279,7 @@ select {
 /* factoids list */
 .factoids-list {
   font-size: 0;
-  margin: 0 -6px;
+  margin: 0 -6px 30px;
 }
 .factoids-list__item {
   display: inline-block;
@@ -333,7 +333,6 @@ select {
 
 /* form */
 .form {
-  margin: 30px 0;
   border-radius: 3px;
   background-color: #ffffff;
 }
@@ -388,6 +387,16 @@ select {
 }
 
 /* search form */
+.search-form-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height .2s ease-out;
+  -o-transition: max-height .2s ease-out;
+  transition: max-height .2s ease-out;
+}
+.search-form-wrapper.is-open {
+  max-height: 85px;
+}
 .search-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,6 +405,7 @@ select {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 10px 10px 17px;
+  margin-bottom: 30px;
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .02);
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .02);
 }
@@ -411,7 +421,9 @@ select {
 /* recent transactions */
 .table-wrapper {
   background-color: #fff;
-  margin: 15px 0;
+}
+.table-wrapper:not(:last-child) {
+  margin-bottom: 15px;
 }
 .table-wrapper__top {
   display: -webkit-box;
@@ -585,7 +597,7 @@ select {
 }
 /* footer */
 .footer {
-  margin: 25px 0;
+  padding: 25px 0;
 }
 .copyright {
   color: var(--text-secondary-inefficient);
