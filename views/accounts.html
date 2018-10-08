@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
   <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -30,129 +30,146 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container inline-container">
-      <div class="inline-container">
-        <a href="/" class="main-logo">
-          <span class="main-logo__icon icon-ess-logo"></span>
-          <span class="main-logo__text">ESS Explorer</span>
-        </a>
-        <ul class="main-nav">
-          <li class="main-nav__item is-active">
-            <a href="#"
-              class="main-nav__link">
-              Home
+  <div class="main-wrapper">
+    <div>
+      <header class="header">
+        <div class="container inline-container">
+          <div class="inline-container">
+            <a href="/" class="main-logo">
+              <span class="main-logo__icon icon-ess-logo"></span>
+              <span class="main-logo__text">ESS Explorer</span>
             </a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#"
-              class="main-nav__link">
-              Accounts
-            </a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#"
-              class="main-nav__link">
-              Pending Tx
-            </a>
-          </li>
-          <li class="main-nav__item">
-            <div class="dropdown">
-              <button class="dropdown__toggle main-nav__link">
-                <span class="dropdown__toggle-text">Tools</span>
-                <span class="dropdown__toggle-icon icon-chevron-down"></span>
-              </button>
-              <div class="dropdown__menu">
-                <ul>
-                  <li class="dropdown__menu-item">
-                    <a href="#"
-                      class="dropdown__menu-link">
-                      Submit Tx
-                    </a>
-                  </li>
-                  <li class="dropdown__menu-item">
-                    <a href="#"
-                      class="dropdown__menu-link">
-                      Verify Contract
-                    </a>
-                  </li>
-                  <li class="dropdown__menu-item">
-                    <a href="#"
-                      class="dropdown__menu-link">
-                      Verify Signature
-                    </a>
-                  </li>
-                </ul>
+            <ul class="main-nav">
+              <li class="main-nav__item is-active">
+                <a href="#"
+                  class="main-nav__link">
+                  Home
+                </a>
+              </li>
+              <li class="main-nav__item">
+                <a href="#"
+                  class="main-nav__link">
+                  Accounts
+                </a>
+              </li>
+              <li class="main-nav__item">
+                <a href="#"
+                  class="main-nav__link">
+                  Pending Tx
+                </a>
+              </li>
+              <li class="main-nav__item">
+                <div class="dropdown">
+                  <button class="dropdown__toggle main-nav__link">
+                    <span class="dropdown__toggle-text">Tools</span>
+                    <span class="dropdown__toggle-icon icon-chevron-down"></span>
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul>
+                      <li class="dropdown__menu-item">
+                        <div
+                          class="dropdown__menu-link"
+                          data-modal="sumit-raw-transaction-modal">
+                          Submit Tx
+                        </div>
+                      </li>
+                      <li class="dropdown__menu-item">
+                        <div
+                          class="dropdown__menu-link"
+                          data-modal="verify-contract-source-modal">
+                          Verify Contract
+                        </div>
+                      </li>
+                      <li class="dropdown__menu-item">
+                        <div
+                          class="dropdown__menu-link"
+                          data-modal="verify-signatures-modal">
+                          Verify Signature
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="search-btn icon-search"></button>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <div class="accounts table-wrapper">
+            <div class="table-wrapper__top">
+              <div class="table-wrapper__title">
+                ACCOUNTS
               </div>
             </div>
-          </li>
-        </ul>
-      </div>
-      <button class="search-btn icon-search"></button>
+            <div class="table-blocks">
+              <div class="table-blocks__tr">
+                <div class="table-blocks__th">Address</div>
+                <div class="table-blocks__th table-blocks__th--small">Type</div>
+                <div class="table-blocks__th table-blocks__th--small">Balance</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
+                <div class="table-blocks__td">Account</div>
+                <div class="table-blocks__td">1e-9 ETH</div>
+              </div>
+            </div>
+          </div>
+          <div class="pagination">
+              <button class="btn btn--secondary pagination__prev">Prev</button>
+              <div class="pagination__pages">
+                <div class="pagination__current-page">1</div>
+                <div class="pagination__devider">of</div>
+                <div class="pagination__all-pages">200</div>
+              </div>
+              <button class="btn btn--secondary pagination__next">Next</button>
+            </div>
+        </div>
+      </main>
     </div>
-  </header>
-  <main>
-    <div class="container">
-      <div class="accounts table-wrapper">
-        <div class="table-wrapper__top">
-          <div class="table-wrapper__title">
-            ACCOUNTS
-          </div>
-        </div>
-        <div class="table-blocks">
-          <div class="table-blocks__tr">
-            <div class="table-blocks__th">Address</div>
-            <div class="table-blocks__th table-blocks__th--small">Type</div>
-            <div class="table-blocks__th table-blocks__th--small">Balance</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
-          <div class="table-blocks__tr">
-            <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-            <div class="table-blocks__td">Account</div>
-            <div class="table-blocks__td">1e-9 ETH</div>
-          </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="copyright">
+          <div class="copyright__top">ESS Explorer 0.91.6</div>
+          <div class="copyright__content">Parity//v1.8.2-beta-1b6588c-20171025/x86_64-linux-gnu/rustc1.21.0</div>
+          <div class="copyright__footer">16 seeds</div>
         </div>
       </div>
-      <div class="pagination">
-          <button class="btn btn--secondary pagination__prev">Prev</button>
-          <div class="pagination__pages">
-            <div class="pagination__current-page">1</div>
-            <div class="pagination__devider">of</div>
-            <div class="pagination__all-pages">200</div>
-          </div>
-          <button class="btn btn--secondary pagination__next">Next</button>
-        </div>
-    </div>
-  </main>
-  <script src="scripts/common.js"></script>
+    </footer>
+  </div>
+
+  <script src="scripts/common.min.js"></script>
 </body>
 </html>
