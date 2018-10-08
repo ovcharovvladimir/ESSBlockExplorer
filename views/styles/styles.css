@@ -73,7 +73,7 @@ select {
 /* containers */
 .container {
   position: relative;
-  max-width: 1040px;
+  width: 1040px;
   padding: 0 20px;
   margin: 0 auto;
 }
