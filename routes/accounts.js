@@ -6,6 +6,7 @@ var Web3 = require('web3');
 var request = require('request')
 
 router.get('/:offset?', function(req, res, next) {
+
   var config = req.app.get('config');  
   var web3 = new Web3();
   web3.setProvider(config.provider);
@@ -17,11 +18,7 @@ router.get('/:offset?', function(req, res, next) {
         })
     }, function(allAccounts, callback) {
       let accounts = allAccounts.slice(0, 20)
-      var data = {};
-      
-      if (!accounts) {
-        return callback({name:"FatDBDisabled", message: "Parity FatDB system is not enabled. Please restart Parity with the --fat-db=on parameter."});
-      }
+      var data = [];
       
       if (accounts.length === 0) {
         return callback({name:"NoAccountsFound", message: "Chain contains no accounts."});
@@ -34,15 +31,16 @@ router.get('/:offset?', function(req, res, next) {
           if (err) {
             return eachCallback(err);
           }
-          data[account] = {};
-          data[account].address = account;
-          data[account].type = code.length > 2 ? "Contract" : "Account";
+          let accountData = {}
+          accountData.address = account;
+          accountData.type = code.length > 2 ? "Contract" : "Account";
           
           web3.eth.getBalance(account, function(err, balance) {
             if (err) {
               return eachCallback(err);
             }
-            data[account].balance = balance;
+            accountData.balance = balance;
+            data.push(accountData)
             eachCallback();
           });
         });
@@ -54,7 +52,6 @@ router.get('/:offset?', function(req, res, next) {
     if (err) {
       return next(err);
     }
-    
     res.render("accounts", { accounts: accounts, lastAccount: lastAccount });
   });
 });

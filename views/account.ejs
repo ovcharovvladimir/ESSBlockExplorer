@@ -25,9 +25,9 @@
 
   <title>ESS Explorer</title>
 
-  <link rel="stylesheet" href="styles/normalize.css">
-  <link rel="stylesheet" href="styles/fonts.css">
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="../styles/normalize.css">
+  <link rel="stylesheet" href="../styles/fonts.css">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
   <div class="main-wrapper">
@@ -40,13 +40,13 @@
               <span class="main-logo__text">ESS Explorer</span>
             </a>
             <ul class="main-nav">
-              <li class="main-nav__item is-active">
+              <li class="main-nav__item">
                 <a href="#"
                   class="main-nav__link">
                   Home
                 </a>
               </li>
-              <li class="main-nav__item">
+              <li class="main-nav__item is-active">
                 <a href="#"
                   class="main-nav__link">
                   Accounts
@@ -105,64 +105,55 @@
               <button class="btn">SEARCH</button>
             </form>
           </div>
-          <div class="accounts table-wrapper">
+          <div class="account table-wrapper">
+            <div class="table-wrapper__top mb25">
+              <div class="table-wrapper__title">
+                ACCOUNT
+              </div>
+            </div>
+            <div class="table-blocks border-spacing-null mb10">
+              <div class="table-blocks__tr">
+                <div class="table-blocks__th table-blocks__th--large">Address</div>
+                <div class="table-blocks__th">Balance</div>
+              </div>
+              <div class="table-blocks__tr">
+                <div class="table-blocks__td table-blocks__td--bold"><%= account.address %></div>
+                <div class="table-blocks__td table-blocks__td--bold"><%= ethformatter(account.balance) %></div>
+              </div>
+            </div>
             <div class="table-wrapper__top">
               <div class="table-wrapper__title">
-                ACCOUNTS
+                RECENT ACTIVITY
               </div>
             </div>
             <div class="table-blocks">
               <div class="table-blocks__tr">
-                <div class="table-blocks__th">Address</div>
-                <div class="table-blocks__th table-blocks__th--small">Type</div>
-                <div class="table-blocks__th table-blocks__th--small">Balance</div>
+                <div class="table-blocks__th">Hash</div>
+                <div class="table-blocks__th">Block#</div>
+                <div class="table-blocks__th">From</div>
+                <div class="table-blocks__th">To</div>
+                <div class="table-blocks__th">Amount</div>
               </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
-              <div class="table-blocks__tr">
-                <div class="table-blocks__td"><a class="table-blocks__url" href="#">0xea674fdde714fd979de3edf0f56aa9716b898ec8</a> </div>
-                <div class="table-blocks__td">Account</div>
-                <div class="table-blocks__td">1e-9 ETH</div>
-              </div>
+              <% account.transactions.forEach(function(tx) { %>
+                <div class="table-blocks__tr">
+                  <div class="table-blocks__td"><span class="hash-box"><%= tx.hash.substr(0, 16) %>…</span></div>
+                  <div class="table-blocks__td"><%= tx.block_number %></div>
+                  <div class="table-blocks__td"><%= tx.address_sender %></div>
+                  <div class="table-blocks__td"><%= tx.address_receiver %></div>
+                  <div class="table-blocks__td"><%= ethformatter(tx.amount) %></div>
+                </div>
+              <% }) %>
             </div>
           </div>
           <div class="pagination">
-              <button class="btn btn--secondary pagination__prev">Prev</button>
-              <div class="pagination__pages">
-                <div class="pagination__current-page">1</div>
-                <div class="pagination__devider">of</div>
-                <div class="pagination__all-pages">200</div>
-              </div>
-              <button class="btn btn--secondary pagination__next">Next</button>
+            <button class="btn btn--secondary pagination__prev">Prev</button>
+            <div class="pagination__pages">
+              <div class="pagination__current-page">1</div>
+              <div class="pagination__devider">of</div>
+              <div class="pagination__all-pages">20</div>
             </div>
+            <button class="btn btn--secondary pagination__next">Next</button>
+          </div>
         </div>
       </main>
     </div>
@@ -401,6 +392,6 @@
     </div>
   </div>
 
-  <script src="scripts/common.min.js"></script>
+  <script src="../scripts/common.min.js"></script>
 </body>
 </html>

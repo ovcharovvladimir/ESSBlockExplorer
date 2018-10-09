@@ -6,7 +6,8 @@ var Web3 = require('web3');
 
 
 router.get('/', function(req, res, next) {
-  
+
+  let lastBlockData
   var config = req.app.get('config');  
   var web3 = new Web3();
   web3.setProvider(config.provider);
@@ -17,9 +18,10 @@ router.get('/', function(req, res, next) {
         callback(err, result);
       });
     }, function(lastBlock, callback) {
+      lastBlockData = lastBlock
       var blocks = [];
       
-      var blockCount = 10;
+      var blockCount = 6;
       
       if (lastBlock.number - blockCount < 0) {
         blockCount = lastBlock.number + 1;
@@ -37,17 +39,17 @@ router.get('/', function(req, res, next) {
     if (err) {
       return next(err);
     }
-    
+
     var txs = [];
     blocks.forEach(function(block) {
       block.transactions.forEach(function(tx) {
-        if (txs.length === 10) {
+        if (txs.length === 6) {
           return;
         }
         txs.push(tx);
       });
     });
-    res.render('index', { blocks: blocks, txs: txs });
+    res.render('index', { blocks: blocks, txs: txs, lastBlock: lastBlockData });
   });
   
 });

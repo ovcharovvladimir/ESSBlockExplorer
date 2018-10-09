@@ -22,21 +22,21 @@ var db = levelup('./data');
 var app = express();
 
 // view engine setup
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
 app.set('config', config);
 app.set('db', db);
 app.set('trust proxy', true);
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger(config.logFormat));
+app.use(favicon(path.join(__dirname, 'views/favicon', 'favicon.ico')));
+// app.use(logger(config.logFormat));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 app.locals.moment = require('moment');
 app.locals.numeral = require('numeral');
@@ -66,7 +66,7 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+  console.log(err)
   // render the error page
   res.status(err.status || 500);
   res.render('error');
