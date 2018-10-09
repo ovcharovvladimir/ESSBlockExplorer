@@ -534,6 +534,7 @@ select {
   width: 132px;
   white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   text-align: center;
@@ -557,6 +558,9 @@ select {
 }
 .accounts .table-blocks__td {
   padding: 12px;
+}
+.accounts .table-blocks__td:nth-child(3) {
+  white-space: nowrap;
 }
 /* pagination */
 .pagination {
