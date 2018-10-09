@@ -96,8 +96,11 @@
       const _this = this
 
       this.modalLinks.forEach(function (e) {
-        e.addEventListener('click', function () {
-          const id = _this.getDataModal(e)
+        const link = e
+
+        e.addEventListener('click', function (e) {
+          e.preventDefault()
+          const id = _this.getDataModal(link)
           const modal = document.querySelector(`#${id}`)
 
           _this.addOpen(modal)
