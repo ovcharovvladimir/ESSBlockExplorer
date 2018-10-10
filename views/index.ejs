@@ -181,9 +181,9 @@
                 <div class="table-blocks__th">Gas Used</div>
               </div>
               <% blocks.forEach(function(block) { %>
-                <div class="table-blocks__tr" data-modal="block-view-modal" data-param="<%= block.number %>">
+                <div class="table-blocks__tr">
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-view-modal">
+                    <span class="u-link" data-modal="block-view-modal" data-param="<%= block.number %>">
                       <i class="icon-cube"></i>
                       <%= block.number %>
                     </span>
@@ -233,7 +233,7 @@
                     </span>
                   </div>
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-transaction-modal">
+                    <span class="u-link" data-modal="block-view-modal" data-param="<%= tx.blockNumber %>">
                       <%= tx.blockNumber %>
                     </span>
                   </div>
