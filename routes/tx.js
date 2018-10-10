@@ -23,7 +23,7 @@ router.get('/pending', function(req, res, next) {
       return next(err);
     }
     
-    res.render('tx_pending', { txs: txs });
+    res.render('pending-transactions', { txs: txs });
   });
 });
 

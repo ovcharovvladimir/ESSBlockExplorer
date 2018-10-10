@@ -170,7 +170,7 @@
               <button class="btn btn--secondary">View all</button>
             </div>
             <div class="table-blocks">
-              <div class="table-blocks__tr" data-modal="block-view-modal">
+              <div class="table-blocks__tr">
                 <div class="table-blocks__th">Block#</div>
                 <div class="table-blocks__th">Block Hash</div>
                 <div class="table-blocks__th">Difficulty</div>
@@ -218,7 +218,7 @@
               <div>No transactions during the last 6 blocks</div>
             <% } else { %>
             <div class="table-blocks">
-              <div class="table-blocks__tr" data-modal="transaction-view-modal">
+              <div class="table-blocks__tr">
                 <div class="table-blocks__th">Hash</div>
                 <div class="table-blocks__th">Block#</div>
                 <div class="table-blocks__th">From</div>
@@ -226,9 +226,9 @@
                 <div class="table-blocks__th">Amount</div>
               </div>
               <% txs.forEach(function(tx) { %>
-                <div class="table-blocks__tr" data-modal="transaction-view-modal">
+                <div class="table-blocks__tr">
                   <div class="table-blocks__td">
-                    <span class="hash-box u-link" data-modal="block-transaction-modal" data-param="<%= tx.hash %>">
+                    <span class="hash-box u-link" data-modal="transaction-view-modal" data-param="<%= tx.hash %>">
                       <%= tx.hash.substr(0,16) %>…
                     </span>
                   </div>
