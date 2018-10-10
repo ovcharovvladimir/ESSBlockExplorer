@@ -7,4 +7,5 @@ function formatAmount(amount) {
   
   return Math.abs(ret.dividedBy(Ether).toFixed(6)) + " ESS";
 }
+
 module.exports = formatAmount;

@@ -129,12 +129,12 @@
     }
 
     getSingleTransaction (hash, id) {
+      console.log(hash)
       const self = this
       $.ajax({
         type: "GET",
         url: localUrl + '/tx/' + hash,
         success: function (data) {
-          console.log(data)
           const transactionContent = document.getElementById('singleTransactionContent')
 
           transactionContent.innerHTML = 
