@@ -115,8 +115,8 @@ router.get('/:tx', function(req, res, next) {
         }
       });
     }
-    // console.log(tx.traces);    
-    res.render('tx', { tx: tx });
+    res.send(tx)   
+    // res.render('tx', { tx: tx });
   });
   
 });

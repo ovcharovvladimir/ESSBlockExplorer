@@ -20,8 +20,8 @@ router.get('/:block', function(req, res, next) {
     if (err) {
       return next(err);
     }
-    
-    res.render('block', { block: block });
+    res.send(block)
+    // res.render('block', { block: block });
   });
   
 });

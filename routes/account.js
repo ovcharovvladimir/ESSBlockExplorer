@@ -97,7 +97,6 @@ router.get('/:account', function(req, res, next) {
     }
     
     data.address = req.params.account;
-    console.log(data)
     
     res.render('account', { account: data });
   });
