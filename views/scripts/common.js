@@ -141,19 +141,19 @@
             '<div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">Hash</div>' +
-                '<div>' + data.hash + '</div>' +
+                '<div class="u-nowrap">' + data.hash + '</div>' +
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">Block hash</div>' +
-                '<div>' + data.blockHash + '</div>' +
+                '<div class="u-nowrap">' + data.blockHash + '</div>' +
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">From</div>' +
-                '<div>' + data.from + '</div>' +
+                '<div class="u-nowrap">' + data.from + '</div>' +
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">To</div>' +
-                '<div>' + data.to + '</div>' +
+                '<div class="u-nowrap">' + data.to + '</div>' +
               '</div>' +
             '</div>' +
             '<div class="modal__info-table">' +
