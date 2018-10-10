@@ -218,15 +218,15 @@
             '<div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">Hash</div>' +
-                '<div>' + data.hash + '</div>' +
+                '<div class="u-nowrap">' + data.hash + '</div>' +
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">Parent hash</div>' +
-                '<div>' + data.parentHash + '</div>' +
+                '<div class="u-nowrap">' + data.parentHash + '</div>' +
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">Miner</div>' +
-                '<div>' + data.miner + '</div>' +
+                '<div class="u-nowrap">' + data.miner + '</div>' +
               '</div>' +
             '</div>' +
             '<div class="modal__info-table">' +
