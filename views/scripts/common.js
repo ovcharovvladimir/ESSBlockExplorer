@@ -129,7 +129,6 @@
     }
 
     getSingleTransaction (hash, id) {
-      console.log(hash)
       const self = this
       $.ajax({
         type: "GET",
@@ -344,6 +343,32 @@
     }
   }
 
+  class Search {
+    constructor(form, modal) {
+      this.form = document.querySelector(form)
+      this.input = this.form.querySelector('input')
+      this.modal = modal
+    }
+
+    init() {
+      const self = this
+      this.form.addEventListener('submit', function (event) {
+        event.preventDefault()
+        const inputText = String(self.input.value)
+
+        if (inputText.length < 22) {
+          self.modal.getSingleBlock(inputText, 'block-view-modal')
+        } else if (inputText.length === 42) {
+          window.location.href = '/account/' + inputText
+        } else if (inputText.length === 66) {
+          self.modal.getSingleTransaction(inputText, 'transaction-view-modal')
+        } else {
+          console.log('invalidData')
+        }
+      })
+    }
+  }
+
   if (document.querySelector('.dropdown')) {
     const dropdown = new Dropdown('.dropdown')
     dropdown.init()
@@ -355,5 +380,10 @@
   if (document.querySelector('.js-search-form')) {
     const toggleSearch = new ToggleSearch('.js-search-btn', '.js-search-form')
     toggleSearch.init()
+    const modal = new Modal('.modal')
+    modal.init()
+    const search = new Search('.js-search-form', modal)
+    search.init()
   }
+
 })();
