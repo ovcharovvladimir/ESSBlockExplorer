@@ -24,7 +24,7 @@ body {
 }
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box
+          box-sizing: border-box;
 }
 a {
   color: inherit;
@@ -438,7 +438,7 @@ select {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10px 10px 0;
+  padding: 10px;
 }
 .recent-transactions__top {
   display: -webkit-box;
@@ -475,11 +475,9 @@ select {
   display: table;
   width: 100%;
   font-size: 12px;
-  border-spacing: 0 15px;
   color: var(--text-accent-saturated--dark);
   background-color: #ffffff;
 }
-.table-blocks__title {}
 .table-blocks__title-icon,
 .table-blocks__title-text {
   display: inline-block;
@@ -496,7 +494,7 @@ select {
 .table-blocks__tr {
   display: table-row;
 }
-.table-blocks__tr:hover {
+.table-blocks__tr:not(:first-child):hover {
   background-color: var(--text-secondary-inefficient--light)
 }
 .table-blocks__th {
@@ -531,15 +529,28 @@ select {
   text-decoration: underline;
 }
 .hash-box {
-  display: inline;
+  display: inline-block;
+  vertical-align: middle;
+  width: 132px;
   white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   text-align: center;
   border: 1px solid var(--text-secondary-inefficient);
   border-radius: 3px;
-  padding: 6px 9px;
+  padding: 8px 9px;
+}
+.u-link {
+  cursor: pointer;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+.u-link:hover {
+  color: var(--text-primary-saturated);
+  border-color: var(--text-primary-saturated);
 }
 /* accounts*/
 .accounts.table-wrapper {
@@ -547,6 +558,9 @@ select {
 }
 .accounts .table-blocks__td {
   padding: 12px;
+}
+.accounts .table-blocks__td:nth-child(3) {
+  white-space: nowrap;
 }
 /* pagination */
 .pagination {

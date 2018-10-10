@@ -136,10 +136,26 @@
               </div>
               <% account.transactions.forEach(function(tx) { %>
                 <div class="table-blocks__tr">
-                  <div class="table-blocks__td"><span class="hash-box"><%= tx.hash.substr(0, 16) %>…</span></div>
-                  <div class="table-blocks__td"><%= tx.block_number %></div>
-                  <div class="table-blocks__td"><%= tx.address_sender %></div>
-                  <div class="table-blocks__td"><%= tx.address_receiver %></div>
+                  <div class="table-blocks__td">
+                    <span class="hash-box u-link" data-modal="block-transaction-modal">
+                      <%= tx.hash.substr(0, 16) %>…
+                    </span>
+                  </div>
+                  <div class="table-blocks__td">
+                    <span class="u-link" data-modal="block-transaction-modal">
+                      <%= tx.block_number %>
+                    </span>
+                  </div>
+                  <div class="table-blocks__td">
+                    <span class="u-link" data-modal="block-transaction-modal">
+                      <%= tx.address_sender %>
+                    </span>
+                  </div>
+                  <div class="table-blocks__td">
+                    <span class="u-link" data-modal="block-transaction-modal">
+                      <%= tx.address_receiver %>
+                    </span>
+                  </div>
                   <div class="table-blocks__td"><%= ethformatter(tx.amount) %></div>
                 </div>
               <% }) %>

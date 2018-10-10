@@ -182,10 +182,23 @@
               </div>
               <% blocks.forEach(function(block) { %>
                 <div class="table-blocks__tr" data-modal="block-view-modal" data-param="<%= block.number %>">
-                  <div class="table-blocks__td"><i class="icon-cube"></i><%= block.number %></div>
-                  <div class="table-blocks__td"><span class="hash-box"><%= block.hash.substr(0,10) %>…</span></div>
+                  <div class="table-blocks__td">
+                    <span class="u-link" data-modal="block-view-modal">
+                      <i class="icon-cube"></i>
+                      <%= block.number %>
+                    </span>
+                  </div>
+                  <div class="table-blocks__td">
+                    <span class="hash-box u-link" data-modal="block-view-modal">
+                      <%= block.hash.substr(0,16) %>…
+                    </span>
+                  </div>
                   <div class="table-blocks__td"><%= block.difficulty %> TH</div>
-                  <div class="table-blocks__td"><a class="table-blocks__url" href="#"><%= block.miner %></a></div>
+                  <div class="table-blocks__td">
+                    <a class="table-blocks__url" href="/account/<%= block.miner %>">
+                      <%= block.miner %>
+                    </a>
+                  </div>
                   <div class="table-blocks__td"><%= block.size %> Kb</div>
                   <div class="table-blocks__td"><%= nameformatter.dateFormat(block.timestamp) %></div>
                   <div class="table-blocks__td"><%= block.transactions.length %></div>
@@ -202,7 +215,7 @@
               <button class="btn btn--secondary">View all</button>
             </div>
             <% if (txs.length === 0) { %>
-              <div>No transactions during the last 10 blocks</div>
+              <div>No transactions during the last 6 blocks</div>
             <% } else { %>
             <div class="table-blocks">
               <div class="table-blocks__tr" data-modal="transaction-view-modal">
@@ -213,13 +226,27 @@
                 <div class="table-blocks__th">Amount</div>
               </div>
               <% txs.forEach(function(tx) { %>
-                <div class="table-blocks__tr" data-modal="transaction-view-modal" data-param="<%= tx.hash %>">
+                <div class="table-blocks__tr" data-modal="transaction-view-modal">
                   <div class="table-blocks__td">
-                    <span class="hash-box"><%= tx.hash.substr(0,10) %>…</span>
+                    <span class="hash-box u-link" data-modal="block-transaction-modal" data-param="<%= tx.hash %>">
+                      <%= tx.hash.substr(0,16) %>…
+                    </span>
                   </div>
-                  <div class="table-blocks__td"><%= tx.blockNumber %></div>
-                  <div class="table-blocks__td"><%= tx.from %></div>
-                  <div class="table-blocks__td"><%= tx.to %></div>
+                  <div class="table-blocks__td">
+                    <span class="u-link" data-modal="block-transaction-modal">
+                      <%= tx.blockNumber %>
+                    </span>
+                  </div>
+                  <div class="table-blocks__td">
+                    <a class="table-blocks__url" href="/account/<%= tx.from %>">
+                      <%= tx.from %>
+                    </a>
+                  </div>
+                  <div class="table-blocks__td">
+                    <a class="table-blocks__url" href="/account/<%= tx.to %>">
+                      <%= tx.to %>
+                    </a>
+                  </div>
                   <div class="table-blocks__td"><%= ethformatter(tx.value) %></div>
                 </div>
               <% }) %>

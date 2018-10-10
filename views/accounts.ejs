@@ -119,7 +119,11 @@
               </div>
               <% accounts.forEach(function(account) { %>
                 <div class="table-blocks__tr">
-                  <div class="table-blocks__td"><a href="/account/<%= account.address %>" class="table-blocks__url"><%= account.address %></a> </div>
+                  <div class="table-blocks__td">
+                    <a href="/account/<%= account.address %>" class="table-blocks__url">
+                      <%= account.address %>
+                    </a>
+                  </div>
                   <div class="table-blocks__td"><%= account.type %></div>
                   <div class="table-blocks__td"><%= ethformatter(account.balance) %></div>
                 </div>
