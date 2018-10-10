@@ -67,25 +67,19 @@
                   <div class="dropdown__menu">
                     <ul>
                       <li class="dropdown__menu-item">
-                        <div
-                          class="dropdown__menu-link"
-                          data-modal="sumit-raw-transaction-modal">
+                        <a href="#" class="dropdown__menu-link">
                           Submit Tx
-                        </div>
+                        </a>
                       </li>
                       <li class="dropdown__menu-item">
-                        <div
-                          class="dropdown__menu-link"
-                          data-modal="verify-contract-source-modal">
+                        <a href="#" class="dropdown__menu-link">
                           Verify Contract
-                        </div>
+                        </a>
                       </li>
                       <li class="dropdown__menu-item">
-                        <div
-                          class="dropdown__menu-link"
-                          data-modal="verify-signatures-modal">
+                        <a href="#" class="dropdown__menu-link">
                           Verify Signature
-                        </div>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -96,15 +90,17 @@
           <button class="search-btn icon-search js-search-btn"></button>
         </div>
       </header>
-      <main>
-        <div class="container">
-          <div class="search-form-wrapper js-search-form">
-            <form class="form search-form">
-              <span class="search-form__icon icon-search"></span>
-              <input type="text" placeholder="Tx Hash, Address, or Block#">
-              <button class="btn">SEARCH</button>
+      <div class="container">
+        <div class="search-form-wrapper js-search-form">
+          <form class="form search-form">
+            <span class="search-form__icon icon-search"></span>
+            <input type="text" placeholder="Tx Hash, Address, or Block#">
+            <button class="btn">SEARCH</button>
             </form>
           </div>
+      </div>
+      <main>
+        <div class="container">
           <div class="account table-wrapper">
             <div class="table-wrapper__top mb25">
               <div class="table-wrapper__title">
@@ -137,24 +133,24 @@
               <% account.transactions.forEach(function(tx) { %>
                 <div class="table-blocks__tr">
                   <div class="table-blocks__td">
-                    <span class="hash-box u-link" data-modal="block-transaction-modal">
+                    <a href="#" class="hash-box u-link">
                       <%= tx.hash.substr(0, 16) %>…
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-transaction-modal">
+                    <a href="#" class="u-link">
                       <%= tx.block_number %>
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-transaction-modal">
+                    <a href="#" class="u-link">
                       <%= tx.address_sender %>
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-transaction-modal">
+                    <a href="#" class="u-link">
                       <%= tx.address_receiver %>
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td"><%= ethformatter(tx.amount) %></div>
                 </div>
@@ -183,230 +179,6 @@
     </footer>
   </div>
 
-  <!-- modals -->
-  <!-- add to the link of modal window
-  the attribute 'data-modal' with id of the modal window-->
-  <div class="modal" id="verify-contract-source-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Verify Contract Source</div>
-      <form class="form">
-        <div class="form__group">
-          <label for="verify-contract-source-ess-address">ESS Address</label>
-          <input type="text" id="verify-contract-source-ess-address">
-        </div>
-        <div class="form__group">
-          <label for="verify-contract-source-contract-name">Contract Name</label>
-          <input type="text" id="verify-contract-source-contract-name">
-        </div>
-        <div class="form__group">
-          <label for="verify-contract-source-contract-source">Contract Source</label>
-          <input type="text" id="verify-contract-source-contract-source">
-        </div>
-        <div class="form__group">
-          <label for="verify-contract-source-compiler-version">Compiler Version</label>
-          <div class="select">
-            <span class="select__icon icon-chevron-down"></span>
-            <select id="verify-contract-source-compiler-version">
-              <option value="verifyCompilerVersion1">
-                solijson-v0.4.20-nighty.2018.1.29
-              </option>
-              <option value="verifyCompilerVersion2">
-                solijson-v0.4.20-nighty.2018.1.29
-              </option>
-              <option value="verifyCompilerVersion3">
-                solijson-v0.4.20-nighty.2018.1.29
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="form__btn">
-          <button class="btn btn--large">VERIFY</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="modal" id="verify-signatures-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Verify ESS Signatures</div>
-      <form class="form">
-        <div class="form__group">
-          <label for="verify-signatures-ess-address">ESS Address</label>
-          <input type="text" id="verify-signatures-ess-address">
-        </div>
-        <div class="form__group">
-          <label for="verify-signatures-message">Message</label>
-          <input type="text" id="verify-signatures-message">
-        </div>
-        <div class="form__group">
-          <label for="verify-signatures-signature">Signature</label>
-          <input type="text" id="verify-signatures-signature">
-        </div>
-        <div class="form__btn">
-          <button class="btn btn--large">VERIFY</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="modal" id="sumit-raw-transaction-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Sumit Raw Transaction</div>
-      <form class="form">
-        <div class="form__group">
-          <label for="sumit-raw-transaction-signed-hex">Signed Transaction Hex</label>
-          <input type="text" id="sumit-raw-transaction-signed-hex">
-        </div>
-        <div class="form__btn">
-          <button class="btn btn--large">VERIFY</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="modal" id="block-view-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container modal__container--wide">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Block 13996</div>
-      <div class="modal__info">
-        <div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Hash</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Parent hash</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Miner</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-        </div>
-        <div class="modal__info-table">
-          <div class="modal__info-table-row">
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Gas Limit</div>
-              <div>8,000,000</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Difficulty</div>
-              <div>8,000,000</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Size</div>
-              <div>536</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Uncles</div>
-              <div>536</div>
-            </div>
-          </div>
-          <div class="modal__info-table-row">
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Gas Used</div>
-              <div>0</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Total Difficulty</div>
-              <div>33,081,694,225</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Transactions</div>
-              <div>0</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Timestamp</div>
-            <div>2018-10-01T17:06:10+03:00 (2 hours ago)</div>
-          </div>
-        </div>
-        <div class="modal__btn-group">
-          <button class="btn btn--secondary">PREVIOUS</button>
-          <button class="btn btn--secondary">NEXT</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="block-transaction-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container modal__container--wide">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">
-        Transaction
-        <div class="u-small">
-          0x971c77a385b8f99e03dae804809550b944eee5a3de9003b334a2c339028c6819
-        </div>
-      </div>
-      <div class="modal__info">
-        <div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Hash</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Block hash</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">From</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">To</div>
-            <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
-          </div>
-        </div>
-        <div class="modal__info-table">
-          <div class="modal__info-table-row">
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Amount</div>
-              <div>0.05 ETH</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Gas Limit</div>
-              <div>90000</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Gas Price</div>
-              <div>2e- 8 ETH</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Block Number</div>
-              <div>48188</div>
-            </div>
-          </div>
-          <div class="modal__info-table-row">
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Nonce</div>
-              <div>53</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Gas Used</div>
-              <div>0</div>
-            </div>
-            <div class="modal__info-table-td">
-              <div class="modal__info-title">Fee</div>
-              <div>0 ETH</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="modal__info-row">
-            <div class="modal__info-title">Data</div>
-            <div>0x</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="../scripts/common.min.js"></script>
+  <script src="../scripts/common.js"></script>
 </body>
 </html>

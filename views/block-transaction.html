@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>ESS Explorer</title>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div class="main-wrapper">
+    <div>
+        <header class="header">
+            <div class="container inline-container">
+                <div class="inline-container">
+                    <a href="/" class="main-logo">
+                        <span class="main-logo__icon icon-ess-logo"></span>
+                        <span class="main-logo__text">ESS Explorer</span>
+                    </a>
+                    <ul class="main-nav">
+                        <li class="main-nav__item is-active">
+                            <a href="#"
+                               class="main-nav__link">
+                                Home
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#"
+                               class="main-nav__link">
+                                Accounts
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#"
+                               class="main-nav__link">
+                                Pending Tx
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <div class="dropdown">
+                                <button class="dropdown__toggle main-nav__link">
+                                    <span class="dropdown__toggle-text">Tools</span>
+                                    <span class="dropdown__toggle-icon icon-chevron-down"></span>
+                                </button>
+                                <div class="dropdown__menu">
+                                    <ul>
+                                        <li class="dropdown__menu-item">
+                                            <a href="#" class="dropdown__menu-link">
+                                                Submit Tx
+                                            </a>
+                                        </li>
+                                        <li class="dropdown__menu-item">
+                                            <a href="#" class="dropdown__menu-link">
+                                                Verify Contract
+                                            </a>
+                                        </li>
+                                        <li class="dropdown__menu-item">
+                                            <a href="#" class="dropdown__menu-link">
+                                                Verify Signature
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="search-btn icon-search js-search-btn"></button>
+            </div>
+        </header>
+        <div class="container">
+            <div class="search-form-wrapper js-search-form">
+                <form class="form search-form">
+                    <span class="search-form__icon icon-search"></span>
+                    <input type="text" placeholder="Tx Hash, Address, or Block#">
+                    <button class="btn">SEARCH</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-page">
+        <div class="modal__container modal__container--wide">
+            <a href="/" class="modal__close">&times;</a>
+            <div class="modal__title">
+                Transaction
+                <div class="u-small">
+                    0x971c77a385b8f99e03dae804809550b944eee5a3de9003b334a2c339028c6819
+                </div>
+            </div>
+            <div class="modal__info">
+                <div>
+                    <div class="modal__info-row">
+                        <div class="modal__info-title">Hash</div>
+                        <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
+                    </div>
+                    <div class="modal__info-row">
+                        <div class="modal__info-title">Block hash</div>
+                        <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
+                    </div>
+                    <div class="modal__info-row">
+                        <div class="modal__info-title">From</div>
+                        <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
+                    </div>
+                    <div class="modal__info-row">
+                        <div class="modal__info-title">To</div>
+                        <div>1F1tAaz5x1HUXrCNLbtMDqcw6o5G1F1tAaz5x1HUXrCNLbtMDqcw</div>
+                    </div>
+                </div>
+                <div class="modal__info-table">
+                    <div class="modal__info-table-row">
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Amount</div>
+                            <div>0.05 ETH</div>
+                        </div>
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Gas Limit</div>
+                            <div>90000</div>
+                        </div>
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Gas Price</div>
+                            <div>2e- 8 ETH</div>
+                        </div>
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Block Number</div>
+                            <div>48188</div>
+                        </div>
+                    </div>
+                    <div class="modal__info-table-row">
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Nonce</div>
+                            <div>53</div>
+                        </div>
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Gas Used</div>
+                            <div>0</div>
+                        </div>
+                        <div class="modal__info-table-td">
+                            <div class="modal__info-title">Fee</div>
+                            <div>0 ETH</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="modal__info-row">
+                        <div class="modal__info-title">Data</div>
+                        <div>0x</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">
+                <div class="copyright__top">ESS Explorer 0.91.6</div>
+                <div class="copyright__content">Parity//v1.8.2-beta-1b6588c-20171025/x86_64-linux-gnu/rustc1.21.0</div>
+                <div class="copyright__footer">16 seeds</div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="scripts/common.js"></script>
+</body>
+</html>
