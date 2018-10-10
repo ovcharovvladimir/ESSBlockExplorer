@@ -8,6 +8,7 @@ var Web3 = require('web3');
 router.get('/', function(req, res, next) {
 
   let lastBlockData
+  let blockTime
   var config = req.app.get('config');  
   var web3 = new Web3();
   web3.setProvider(config.provider);
@@ -29,6 +30,9 @@ router.get('/', function(req, res, next) {
       
       async.times(blockCount, function(n, next) {
         web3.eth.getBlock(lastBlock.number - n, true, function(err, block) {
+          if (lastBlock.number - block.number === 1) {
+            blockTime = lastBlockData.timestamp - block.timestamp
+          }
           next(err, block);
         });
       }, function(err, blocks) {
@@ -49,7 +53,7 @@ router.get('/', function(req, res, next) {
         txs.push(tx);
       });
     });
-    res.render('index', { blocks: blocks, txs: txs, lastBlock: lastBlockData });
+    res.render('index', { blocks: blocks, txs: txs, lastBlock: lastBlockData, blockTime: blockTime });
   });
   
 });

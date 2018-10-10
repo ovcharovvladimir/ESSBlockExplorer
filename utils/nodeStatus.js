@@ -20,6 +20,9 @@ var nodeStatus = function(config) {
         web3.eth.net.getPeerCount(function(err, result) {
           self.nbrPeers = result;
           callback(err);
+        })
+        web3.eth.getHashrate(function(err, hashrate) {
+          self.hashrate = hashrate || 0
         });
       }
     ], function(err) {
