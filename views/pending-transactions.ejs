@@ -99,9 +99,9 @@
       <main>
         <div class="container">
           <div class="search-form-wrapper js-search-form">
-            <form class="form search-form">
+            <form class="form search-form" method="POST" action="/search">
               <span class="search-form__icon icon-search"></span>
-              <input type="text" placeholder="Tx Hash, Address, or Block#" name='search'>
+              <input type="text" name="search" placeholder="Tx Hash, Address, or Block#">
               <button class="btn">SEARCH</button>
             </form>
           </div>
@@ -122,9 +122,9 @@
               <% txs.forEach(function(tx){ %>
                 <div class="table-blocks__tr">
                   <div class="table-blocks__td">
-                    <span class="hash-box u-link" data-modal="transaction-view-modal" data-param="<%= tx.hash %>">
+                    <a href="/tx/<%= tx.hash %>" class="hash-box u-link">
                       <%= tx.hash %>
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
                     <a class="table-blocks__url" href="/account/<%= tx.from %>">
@@ -269,7 +269,6 @@
     </div>
   </div>
 
-  <script src="../scripts/jquery.js"></script>
   <script src="../scripts/common.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
                         <span class="main-logo__text">ESS Explorer</span>
                     </a>
                     <ul class="main-nav">
-                        <li class="main-nav__item is-active">
+                        <li class="main-nav__item">
                             <a href="#"
                                class="main-nav__link">
                                 Home
@@ -92,11 +92,11 @@
         </header>
         <div class="container">
             <div class="search-form-wrapper js-search-form">
-                <form class="form search-form">
-                    <span class="search-form__icon icon-search"></span>
-                    <input type="text" placeholder="Tx Hash, Address, or Block#">
-                    <button class="btn">SEARCH</button>
-                </form>
+              <form class="form search-form" method="POST" action="/search">
+                <span class="search-form__icon icon-search"></span>
+                <input type="text" name="search" placeholder="Tx Hash, Address, or Block#">
+                <button class="btn">SEARCH</button>
+              </form>
             </div>
         </div>
     </div>

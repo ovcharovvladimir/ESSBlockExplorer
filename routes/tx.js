@@ -107,7 +107,7 @@ router.get('/:tx', function(req, res, next) {
     if (err) {
       return next(err);
     }
-     
+
     // Try to match the tx to a solidity function call if the contract source is available
     if (source) {
       tx.source = JSON.parse(source);
@@ -135,8 +135,8 @@ router.get('/:tx', function(req, res, next) {
         }
       });
     }
-    res.send(tx)   
-    // res.render('tx', { tx: tx });
+
+    res.render('transaction-view', { tx: tx });
   });
   
 });
