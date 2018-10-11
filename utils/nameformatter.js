@@ -31,6 +31,31 @@ function nameFormatter(config) {
     dateObject.seconds = this._checkIfDoubleValue(date.getSeconds())
     // eslint-disable-next-line
     return new Function('return `' + template + '`').call(dateObject)
+  },
+
+  this.countTimeDiff = function (timestamp) {
+    const currentTimestamp = Math.floor(new Date().getTime() / 1000)
+    let diff = currentTimestamp - timestamp
+    let template
+    let diffDate = new Date(diff * 1000)
+    
+    if (diff < 60) {
+      template = diffDate.getSeconds() + ' secs'
+    } else if (diff >= 60 && diff < 120) {
+      template = diffDate.getMinutes() + ' min'
+    } else if (diff >= 120 && diff < 3600) {
+      template = diffDate.getMinutes() + ' mins'
+    } else if (diff >= 3600 && diff < 7200) {
+      template = diffDate.getHours() - 2 + ' hour ' + diffDate.getMinutes() + ' mins'  
+    } else if (diff >= 7200 && diff < 86400) {
+      template = diffDate.getHours() - 2 + ' hours ' + diffDate.getMinutes() + ' mins'
+    } else if (diff >= 86400 && diff < 172800) {
+      template = diffDate.getDate() + ' day ' + diffDate.getHours() + ' hours'
+    } else if (diff >= 172800) {
+      template = diffDate.getDate() + ' days ' + diffDate.getHours() + ' hours'
+    }
+
+    return template 
   }
 }
-module.exports = nameFormatter;
+module.exports = nameFormatter

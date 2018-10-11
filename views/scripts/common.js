@@ -149,11 +149,11 @@
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">From</div>' +
-                '<div>' + data.from + '</div>' +
+                '<div class="u-nowrap">' + data.from + '</div>' +
               '</div>' +
               '<div class="modal__info-row">' +
                 '<div class="modal__info-title">To</div>' +
-                '<div>' + data.to + '</div>' +
+                '<div class="u-nowrap">' + data.to + '</div>' +
               '</div>' +
             '</div>' +
             '<div class="modal__info-table">' +
