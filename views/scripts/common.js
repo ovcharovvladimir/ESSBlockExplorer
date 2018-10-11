@@ -75,9 +75,41 @@
     }
   }
 
+  class Pagination {
+    constructor (group, currentPage) {
+      let page = currentPage.split('=')
+      if (page[0] === 'page') {
+        this.page = page[1]
+      }
+      this.paginationGroup = document.querySelector(group)
+      this.buttons = this.paginationGroup.querySelectorAll('button')
+    }
+
+    init () {
+      const self = this
+      for (let button of this.buttons) {
+        if (button.classList.contains('pagination__prev')) {
+          button.addEventListener('click', function() {
+            let prevPage = self.page - 1
+            window.location.search = 'page=' + prevPage
+          })
+        } else if (button.classList.contains('pagination__next')) {
+          button.addEventListener('click', function () {
+            let nextPage = Number(self.page) + 1
+            window.location.search = 'page=' + nextPage
+          })
+        }
+      }
+    }
+  }
+
   if (document.querySelector('.dropdown')) {
     const dropdown = new Dropdown('.dropdown')
     dropdown.init()
+  }
+  if (document.querySelector('.pagination')) {
+    const pagination = new Pagination('.pagination', window.location.search.substring(1))
+    pagination.init()
   }
   if (document.querySelector('.js-search-form')) {
     const toggleSearch = new ToggleSearch('.js-search-btn', '.js-search-form')

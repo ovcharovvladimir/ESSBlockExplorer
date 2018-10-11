@@ -6,14 +6,17 @@ var Web3 = require('web3');
 var request = require('request')
 
 router.get('/:offset?', function(req, res, next) {
+  const range = req.query.page
 
   var config = req.app.get('config');  
   var web3 = new Web3();
+  let accountsCount = 0
   web3.setProvider(config.provider);
   
   async.waterfall([
     function(callback) {
-      request.get(config.blockexplorerDataUrl + '/accounts', function (err, response, body){
+      request.get(config.blockexplorerDataUrl + '/accounts?page=' + range, function (err, response, body){
+        accountsCount = JSON.parse(body).accountsCount
         callback(err, JSON.parse(body).addresses);
         })
     }, function(allAccounts, callback) {
@@ -52,7 +55,7 @@ router.get('/:offset?', function(req, res, next) {
     if (err) {
       return next(err);
     }
-    res.render("accounts", { accounts: accounts, lastAccount: lastAccount });
+    res.render("accounts", { accounts: accounts, lastAccount: lastAccount, accountsCount: accountsCount, currentPage: range });
   });
 });
 
