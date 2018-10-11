@@ -67,25 +67,19 @@
                   <div class="dropdown__menu">
                     <ul>
                       <li class="dropdown__menu-item">
-                        <div
-                          class="dropdown__menu-link"
-                          data-modal="sumit-raw-transaction-modal">
+                        <a href="#" class="dropdown__menu-link">
                           Submit Tx
-                        </div>
+                        </a>
                       </li>
                       <li class="dropdown__menu-item">
-                        <div
-                          class="dropdown__menu-link"
-                          data-modal="verify-contract-source-modal">
+                        <a href="#" class="dropdown__menu-link">
                           Verify Contract
-                        </div>
+                        </a>
                       </li>
                       <li class="dropdown__menu-item">
-                        <div
-                          class="dropdown__menu-link"
-                          data-modal="verify-signatures-modal">
+                        <a href="#" class="dropdown__menu-link">
                           Verify Signature
-                        </div>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -96,6 +90,15 @@
           <button class="search-btn icon-search js-search-btn"></button>
         </div>
       </header>
+      <div class="container">
+        <div class="search-form-wrapper js-search-form">
+            <form class="form search-form">
+            <span class="search-form__icon icon-search"></span>
+            <input type="text" placeholder="Tx Hash, Address, or Block#">
+            <button class="btn">SEARCH</button>
+            </form>
+        </div>
+      </div>
       <main>
         <div class="container">
           <div class="search-form-wrapper js-search-form">
@@ -183,15 +186,15 @@
               <% blocks.forEach(function(block) { %>
                 <div class="table-blocks__tr">
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-view-modal" data-param="<%= block.number %>">
+                    <a href="/block/<%= block.number %>" class="u-link" data-param="<%= block.number %>">
                       <i class="icon-cube"></i>
                       <%= block.number %>
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
-                    <span class="hash-box u-link" data-modal="block-view-modal" data-param="<%= block.number %>">
+                    <a href="/block/<%= block.number %>" class="hash-box u-link">
                       <%= block.hash.substr(0,16) %>…
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td"><%= block.difficulty %> TH</div>
                   <div class="table-blocks__td">
@@ -228,14 +231,14 @@
               <% txs.forEach(function(tx) { %>
                 <div class="table-blocks__tr">
                   <div class="table-blocks__td">
-                    <span class="hash-box u-link" data-modal="transaction-view-modal" data-param="<%= tx.hash %>">
+                    <a href="#" class="hash-box u-link" data-param="<%= tx.hash %>">
                       <%= tx.hash.substr(0,16) %>…
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
-                    <span class="u-link" data-modal="block-view-modal" data-param="<%= tx.blockNumber %>">
+                    <a href="#" class="u-link" data-param="<%= tx.blockNumber %>">
                       <%= tx.blockNumber %>
-                    </span>
+                    </a>
                   </div>
                   <div class="table-blocks__td">
                     <a class="table-blocks__url" href="/account/<%= tx.from %>">
@@ -264,111 +267,6 @@
         </div>
       </div>
     </footer>
-  </div>
-
-  <!-- modals -->
-  <!-- add to the link of modal window
-  the attribute 'data-modal' with id of the modal window-->
-  <div class="modal" id="verify-contract-source-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Verify Contract Source</div>
-      <form class="form">
-        <div class="form__group">
-          <label for="verify-contract-source-ess-address">ESS Address</label>
-          <input type="text" id="verify-contract-source-ess-address">
-        </div>
-        <div class="form__group">
-          <label for="verify-contract-source-contract-name">Contract Name</label>
-          <input type="text" id="verify-contract-source-contract-name">
-        </div>
-        <div class="form__group">
-          <label for="verify-contract-source-contract-source">Contract Source</label>
-          <input type="text" id="verify-contract-source-contract-source">
-        </div>
-        <div class="form__group">
-          <label for="verify-contract-source-compiler-version">Compiler Version</label>
-          <div class="select">
-            <span class="select__icon icon-chevron-down"></span>
-            <select id="verify-contract-source-compiler-version">
-              <option value="verifyCompilerVersion1">
-                solijson-v0.4.20-nighty.2018.1.29
-              </option>
-              <option value="verifyCompilerVersion2">
-                solijson-v0.4.20-nighty.2018.1.29
-              </option>
-              <option value="verifyCompilerVersion3">
-                solijson-v0.4.20-nighty.2018.1.29
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="form__btn">
-          <button class="btn btn--large">VERIFY</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="modal" id="verify-signatures-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Verify ESS Signatures</div>
-      <form class="form">
-        <div class="form__group">
-          <label for="verify-signatures-ess-address">ESS Address</label>
-          <input type="text" id="verify-signatures-ess-address">
-        </div>
-        <div class="form__group">
-          <label for="verify-signatures-message">Message</label>
-          <input type="text" id="verify-signatures-message">
-        </div>
-        <div class="form__group">
-          <label for="verify-signatures-signature">Signature</label>
-          <input type="text" id="verify-signatures-signature">
-        </div>
-        <div class="form__btn">
-          <button class="btn btn--large">VERIFY</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="modal" id="sumit-raw-transaction-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">Sumit Raw Transaction</div>
-      <form class="form">
-        <div class="form__group">
-          <label for="sumit-raw-transaction-signed-hex">Signed Transaction Hex</label>
-          <input type="text" id="sumit-raw-transaction-signed-hex">
-        </div>
-        <div class="form__btn">
-          <button class="btn btn--large">VERIFY</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="modal" id="block-view-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container modal__container--wide">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title" id="singleBlockTitle"></div>
-      <div class="modal__info" id="singleBlockContent"></div>
-    </div>
-  </div>
-  <div class="modal" id="transaction-view-modal">
-    <div class="modal__backdrop"></div>
-    <div class="modal__container modal__container--wide">
-      <div class="modal__close">&times;</div>
-      <div class="modal__title">
-        Transaction
-      </div>
-      <div class="modal__info" id="singleTransactionContent">
-
-      </div>
-    </div>
   </div>
 
   <script src="scripts/jquery.js"></script>
