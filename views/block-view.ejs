@@ -100,6 +100,13 @@
             </div>
         </div>
     </div>
+    <% if (!block) { %>
+      <div class="modal-page">
+        <div class="modal__container modal__container--wide" style="text-align: center; font-size: 17px; ">
+          Transaction hash not found
+        </div>
+      </div>
+    <% } else { %>
     <div class="modal-page">
         <div class="modal__container modal__container--wide">
             <a href="/" class="modal__close">&times;</a>
@@ -166,6 +173,7 @@
             </div>
         </div>
     </div>
+    <% } %>
     <footer class="footer">
         <div class="container">
             <div class="copyright">
