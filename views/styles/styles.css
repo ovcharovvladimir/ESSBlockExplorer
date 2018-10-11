@@ -683,7 +683,7 @@ select {
   z-index: 1;
 }
 .modal__container--wide {
-  max-width: 567px;
+  max-width: 670px;
 }
 .modal__container .u-small {
   font-size: 12px;
