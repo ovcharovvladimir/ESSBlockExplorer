@@ -24,7 +24,7 @@ router.get('/:offset?', function(req, res, next) {
       var data = [];
       
       if (accounts.length === 0) {
-        return callback({name:"NoAccountsFound", message: "Chain contains no accounts."});
+        return res.render("accounts", { accounts: null,accountsCount: 0, currentPage: range });
       }
       
       var lastAccount = accounts[accounts.length - 1];

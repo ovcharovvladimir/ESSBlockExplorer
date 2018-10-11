@@ -105,53 +105,59 @@
               <button class="btn">SEARCH</button>
             </form>
           </div>
-          <div class="table-wrapper">
-            <div class="table-wrapper__top">
-              <div class="table-wrapper__title">
-                PENDING TRANSACTIONS
-              </div>
+          <% if (txs.length === 0) { %>
+            <div style="text-align: center; font-size: 17px;">
+              Chain contains no pending transactions.
             </div>
-            <div class="table-blocks">
-              <div class="table-blocks__tr">
-                <div class="table-blocks__th">Hash</div>
-                <div class="table-blocks__th">From</div>
-                <div class="table-blocks__th">To</div>
-                <div class="table-blocks__th">Amount</div>
-                <div class="table-blocks__th">Gas Fee</div>
-              </div>
-              <% txs.forEach(function(tx){ %>
-                <div class="table-blocks__tr">
-                  <div class="table-blocks__td">
-                    <a href="/tx/<%= tx.hash %>" class="hash-box u-link">
-                      <%= tx.hash %>
-                    </a>
-                  </div>
-                  <div class="table-blocks__td">
-                    <a class="table-blocks__url" href="/account/<%= tx.from %>">
-                      <%= tx.from %>
-                    </a>
-                  </div>
-                  <div class="table-blocks__td">
-                    <a class="table-blocks__url" href="/account/<%= tx.to %>">
-                      <%= tx.to %>
-                    </a>
-                  </div>
-                  <div class="table-blocks__td"><%= hexformatter(tx.value) %></div>
-                  <div class="table-blocks__td"><%= hexformatter(parseInt(tx.gasPrice, 16) * parseInt(tx.value, 16) * parseInt(tx.gas, 16)) %></div>
+          <% } else { %>
+            <div class="table-wrapper">
+              <div class="table-wrapper__top">
+                <div class="table-wrapper__title">
+                  PENDING TRANSACTIONS
                 </div>
-              <% }) %>
+              </div>
+              <div class="table-blocks">
+                <div class="table-blocks__tr">
+                  <div class="table-blocks__th">Hash</div>
+                  <div class="table-blocks__th">From</div>
+                  <div class="table-blocks__th">To</div>
+                  <div class="table-blocks__th">Amount</div>
+                  <div class="table-blocks__th">Gas Fee</div>
+                </div>
+                <% txs.forEach(function(tx){ %>
+                  <div class="table-blocks__tr">
+                    <div class="table-blocks__td">
+                      <a href="/tx/<%= tx.hash %>" class="hash-box u-link">
+                        <%= tx.hash %>
+                      </a>
+                    </div>
+                    <div class="table-blocks__td">
+                      <a class="table-blocks__url" href="/account/<%= tx.from %>">
+                        <%= tx.from %>
+                      </a>
+                    </div>
+                    <div class="table-blocks__td">
+                      <a class="table-blocks__url" href="/account/<%= tx.to %>">
+                        <%= tx.to %>
+                      </a>
+                    </div>
+                    <div class="table-blocks__td"><%= hexformatter(tx.value) %></div>
+                    <div class="table-blocks__td"><%= hexformatter(parseInt(tx.gasPrice, 16) * parseInt(tx.value, 16) * parseInt(tx.gas, 16)) %></div>
+                  </div>
+                <% }) %>
+              </div>
+            </div>
+            <div class="pagination">
+              <button class="btn btn--secondary pagination__prev">Prev</button>
+              <div class="pagination__pages">
+                <div class="pagination__current-page">1</div>
+                <div class="pagination__devider">of</div>
+                <div class="pagination__all-pages">20</div>
+              </div>
+              <button class="btn btn--secondary pagination__next">Next</button>
             </div>
           </div>
-          <div class="pagination">
-            <button class="btn btn--secondary pagination__prev">Prev</button>
-            <div class="pagination__pages">
-              <div class="pagination__current-page">1</div>
-              <div class="pagination__devider">of</div>
-              <div class="pagination__all-pages">20</div>
-            </div>
-            <button class="btn btn--secondary pagination__next">Next</button>
-          </div>
-        </div>
+        <% } %>
       </main>
     </div>
     <footer class="footer">

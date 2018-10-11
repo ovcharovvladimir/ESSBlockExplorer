@@ -47,7 +47,7 @@
                 </a>
               </li>
               <li class="main-nav__item is-active">
-                <a href="/accounts"
+                <a href="/accounts?page=1"
                   class="main-nav__link">
                   Accounts
                 </a>
@@ -100,42 +100,48 @@
         </div>
       </div>
       <main>
-        <div class="container">
-          <div class="accounts table-wrapper">
-            <div class="table-wrapper__top">
-              <div class="table-wrapper__title">
-                ACCOUNTS
-              </div>
-            </div>
-            <div class="table-blocks">
-              <div class="table-blocks__tr">
-                <div class="table-blocks__th">Address</div>
-                <div class="table-blocks__th table-blocks__th--small">Type</div>
-                <div class="table-blocks__th table-blocks__th--small">Balance</div>
-              </div>
-              <% accounts.forEach(function(account) { %>
-                <div class="table-blocks__tr">
-                  <div class="table-blocks__td">
-                    <a href="/account/<%= account.address %>" class="table-blocks__url">
-                      <%= account.address %>
-                    </a>
-                  </div>
-                  <div class="table-blocks__td"><%= account.type %></div>
-                  <div class="table-blocks__td"><%= ethformatter(account.balance) %></div>
-                </div>
-              <% }) %>
-            </div>
+        <% if (!accounts) { %>
+          <div class="container" style="text-align: center; font-size: 17px;">
+            Chain contains no accounts.
           </div>
-          <div class="pagination">
-              <button class="btn btn--secondary pagination__prev">Prev</button>
-              <div class="pagination__pages">
-                <div class="pagination__current-page"><%= currentPage %></div>
-                <div class="pagination__devider">of</div>
-                <div class="pagination__all-pages"><%= accountsCount %></div>
+          <% } else { %>
+            <div class="container">
+              <div class="accounts table-wrapper">
+                <div class="table-wrapper__top">
+                  <div class="table-wrapper__title">
+                    ACCOUNTS
+                  </div>
+                </div>
+                <div class="table-blocks">
+                  <div class="table-blocks__tr">
+                    <div class="table-blocks__th">Address</div>
+                    <div class="table-blocks__th table-blocks__th--small">Type</div>
+                    <div class="table-blocks__th table-blocks__th--small">Balance</div>
+                  </div>
+                    <% accounts.forEach(function(account) { %>
+                      <div class="table-blocks__tr">
+                        <div class="table-blocks__td">
+                          <a href="/account/<%= account.address %>" class="table-blocks__url">
+                            <%= account.address %>
+                          </a>
+                        </div>
+                        <div class="table-blocks__td"><%= account.type %></div>
+                        <div class="table-blocks__td"><%= ethformatter(account.balance) %></div>
+                      </div>
+                    <% }) %>
+                </div>
               </div>
-              <button class="btn btn--secondary pagination__next">Next</button>
+              <div class="pagination">
+                  <button class="btn btn--secondary pagination__prev">Prev</button>
+                  <div class="pagination__pages">
+                    <div class="pagination__current-page"><%= currentPage %></div>
+                    <div class="pagination__devider">of</div>
+                    <div class="pagination__all-pages"><%= accountsCount %></div>
+                  </div>
+                  <button class="btn btn--secondary pagination__next">Next</button>
+                </div>
             </div>
-        </div>
+          <% } %>
       </main>
     </div>
     <footer class="footer">
